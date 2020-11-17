@@ -39,19 +39,27 @@ public class SungJukV3 {
 
        // 처리
        // 성적 데이터를 키보드로 입력받기 위해 Scanner 클래스 초기화
-       Scanner scanner = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
 
        for (int i=0; i <3; ++i) {
                System.out.println((i+1) + "번째 학생 성적 입력 중 ... ");
 
                System.out.print("이름을 입력하세요 : ");
-               name[i] = scanner.nextLine();
+               name[i] = sc.nextLine();
                System.out.print("국어 점수를 입력하세요 : ");
-               kor[i] = scanner.nextInt();
+               kor[i] = sc.nextInt();
                System.out.print("영어 점수를 입력하세요 : ");
-               eng[i] = scanner.nextInt();
+               eng[i] = sc.nextInt();
                System.out.print("수학 점수를 입력하세요 : ");
-               mat[i] = scanner.nextInt();
+               mat[i] = sc.nextInt();
+
+               sc.skip("\r\n|[\n\r]");
+
+               // 수학성적 입력시 같이 입력된 enter키가
+               // 다음 데이터(이름) 입력 시 입력값으로
+              // 자동으로 전달됨
+              // 그러한 상황을 해결하기 위해
+             // 미리 엔터키를 제거하는 코드 삽입 (scanner명.skip("\r\n|[\n\r]");)
 
            }
 
