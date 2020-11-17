@@ -21,16 +21,17 @@ import java.util.Scanner;
 public class SungJukV3 {
     public static void main(String[] args) {
        // 변수선언
-       String name ;
-       int kor ;
-       int eng ;
-       int mat ;
-       int sum ;
-       double mean ;
-       char grd ;
+        //  자료형 변수명[] = new 자료형[크기];
+       String name[] = new String[3];
+       int kor[] = new int[3] ;
+       int eng[] = new int[3] ;
+       int mat[] = new int[3] ;
+       int sum[] = new int[3] ;
+       double mean[] = new double[3] ;
+       char grd[] = new char[3];
        String fmt =
             "이름 : %s\n 국어 : %d\n 영어 : %d\n 수학 : %d\n"
-                    + "총점 : %d\n 평균 : %.1f\n 학점 : %c";
+                    + "총점 : %d\n 평균 : %.1f\n 학점 : %c\n";
 
 
 
@@ -40,49 +41,51 @@ public class SungJukV3 {
        // 성적 데이터를 키보드로 입력받기 위해 Scanner 클래스 초기화
        Scanner scanner = new Scanner(System.in);
 
-       for (int i=1; i <=3; ++i) {
-           System.out.println(i + "번째 학생 성적 입력 중 ... ");
+       for (int i=0; i <3; ++i) {
+               System.out.println((i+1) + "번째 학생 성적 입력 중 ... ");
 
-           System.out.print("이름을 입력하세요 : ");
-           name = scanner.nextLine();
-           System.out.print("국어 점수를 입력하세요 : ");
-           kor = scanner.nextInt();
-           System.out.print("영어 점수를 입력하세요 : ");
-           eng = scanner.nextInt();
-           System.out.print("수학 점수를 입력하세요 : ");
-           mat = scanner.nextInt();
+               System.out.print("이름을 입력하세요 : ");
+               name[i] = scanner.nextLine();
+               System.out.print("국어 점수를 입력하세요 : ");
+               kor[i] = scanner.nextInt();
+               System.out.print("영어 점수를 입력하세요 : ");
+               eng[i] = scanner.nextInt();
+               System.out.print("수학 점수를 입력하세요 : ");
+               mat[i] = scanner.nextInt();
 
+           }
 
-           sum = kor + eng + mat;
-           mean = (double) sum / 3;
+           for (int i=0; i<3; ++i) {
+               sum[i] = kor[i] + eng[i] + mat[i];
+               mean[i] = (double) sum[i] / 3;
 
-           switch ((int) mean / 10) {
-               case 10:
-                   grd = '수';
-                   break;
-               case 9:
-                   grd = '수';
-                   break;
-               case 8:
-                   grd = '우';
-                   break;
-               case 7:
-                   grd = '미';
-                   break;
-               case 6:
-                   grd = '양';
-                   break;
-               default:
-                   grd = '가';
+               switch ((int) mean[i] / 10) {
+                   case 10:
+                   case 9:
+                       grd[i] = '수';
+                       break;
+                   case 8:
+                       grd[i] = '우';
+                       break;
+                   case 7:
+                       grd[i] = '미';
+                       break;
+                   case 6:
+                       grd[i] = '양';
+                       break;
+                   default:
+                       grd[i] = '가';
+               }
            }
 
 
            // 결과출력
 
-           System.out.printf(fmt, name, kor, eng, mat, sum, mean, grd);
+           for(int i=0; i<3; ++i) {
+               System.out.printf(fmt, name[i], kor[i], eng[i], mat[i], sum[i], mean[i], grd[i]);
+           }
 
        }
 
 
     }
-}
