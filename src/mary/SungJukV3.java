@@ -47,13 +47,14 @@ public class SungJukV3 {
                System.out.print("이름을 입력하세요 : ");
                name[i] = sc.nextLine();
                System.out.print("국어 점수를 입력하세요 : ");
-               kor[i] = sc.nextInt();
+               kor[i] = Integer.parseInt(sc.nextLine());
                System.out.print("영어 점수를 입력하세요 : ");
-               eng[i] = sc.nextInt();
+               eng[i] = Integer.parseInt(sc.nextLine());
                System.out.print("수학 점수를 입력하세요 : ");
-               mat[i] = sc.nextInt();
+               mat[i] = Integer.parseInt(sc.nextLine());
 
-               sc.skip("\r\n|[\n\r]");
+               //sc.skip("\r\n|[\n\r]");
+                // 이 변수 사용하지 않기 위해서 nextInt -> nextLine 으로 변경해서 값 설정 : Integer.parseInt(sc.nextLine());
 
                // 수학성적 입력시 같이 입력된 enter키가
                // 다음 데이터(이름) 입력 시 입력값으로
