@@ -1,4 +1,4 @@
-package mary;
+package lab;
 
 import java.util.Scanner;
 

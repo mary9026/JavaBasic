@@ -1,4 +1,4 @@
-package mary;
+package lab;
 
 import java.util.Scanner;
 
@@ -17,12 +17,14 @@ public class Q26_Salary {
         salary = sc.nextInt();
 
 
-        if(marry<=0) {
-            if(salary<3000) {
+        if(salary<3000) {
+            if (salary<3000) {
             tax = (salary*10)/100;}
-        }else if (marry<=0 ) {
-            if(salary>3000) {
-            tax = (salary*25)/100;}
+            else if (salary>3000) {
+                tax = (salary*25)/100;
+            }
+        }else if (marry<=0 & salary>3000) {
+            tax = (salary*25)/100;
         }else if (marry>=1) {
             if(salary<6000) {
             tax = (salary*15)/100;}
