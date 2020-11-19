@@ -4,8 +4,8 @@ public class Student {
         int stdnum;
         String name;
         String adress;
-        double birth;
+        String birth;
         String major;
-        int teach;
+        String prof;
 
 }
