@@ -39,6 +39,8 @@ public class EX01 {
     // 각 객체의 변수에 값 대입
 
 
+        Student jeon = new Student(201252110, "전지현", "경기도 의정부시", "1986.4.30", "의상디자인", "445");
+        Major sik = new Major("식품영양", "345-6789-0123", "F동 8층", "556");
 
 
 
@@ -47,6 +49,16 @@ public class EX01 {
 
 
 
+
+
+
+
+        // 기본 생성자로 만든 객체 내용 출력
+        System.out.println(jeon.stdnum);
+        System.out.println(sik.major);
+
+        // 매개변수를 사용하는 생성자로 객체 생성
+        Student bak = new Student();
 
 
     // 객체에 저장된 값 출력

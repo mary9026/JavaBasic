@@ -23,7 +23,15 @@ public class OOP {
         Person lee = new Person();
         Person kim = new Person();
 
+        // 기본 생성자로 초기화된 변수 확인
+        System.out.println(choi.name);
+        System.out.println(lee.name);
+        System.out.println(kim.name);
+
+
         // 객체의 변수(멤버변수)에 값 대입
+        // 각 변수별로 값을 대입하는 것은 다소 불편
+        // => 생성자를 이용하면 좀 더 편하게 값을 대입할 수 있음
         choi.name = "최승희";
         choi.job = "의사";
         choi.age = 45;
@@ -42,12 +50,22 @@ public class OOP {
         kim.gender = "남";
         kim.blood = "AB";
 
+        // 매개변수 생성자를 이용한 객체 생성 및 초기화
+        Person bak = new Person("재성", "프로그래머", 30, "남", "O");
+
         // 멤버변수 출력
         System.out.println(choi.name);
         System.out.println(choi.job);
         System.out.println(choi.age);
         System.out.println(choi.gender);
         System.out.println(choi.blood);
+
+        System.out.println(bak.name);
+        System.out.println(bak.job);
+        System.out.println(bak.age);
+        System.out.println(bak.gender);
+        System.out.println(bak.blood);
+
     }
 } // class
 
@@ -64,5 +82,32 @@ class Person {
     int age;
     String gender;
     String blood;
+
+    // 생성자 constructor
+    // 멤버변수의 값을 초기화시키는 특별한 메서드
+    // public 클래스명(매개변수,..) {
+    //   변수 초기화
+    // }
+
+    // 기본 생성자
+    public Person() {
+        name = "홍길동";
+        job = "무사";
+        age = 18;
+        gender = "남";
+        blood = "O";
+    }
+    // 매개변수를 사용한 생성자자
+    // 매개변수명과 멤버변수명이 같은 경우
+    // 변수가림 shadowing 현상 발생
+    // 클래스의 멤버변수임을 명확하게 표현하기 위해
+    // 변수명 앞에 this라는 키워드를 추가 작성
+   public Person(String name, String job, int age, String gender, String blood) {
+        this.name = name;
+        this.job = job;
+        this.age = age;
+        this.gender = gender;
+        this.blood = blood;
+    }
 
 }
