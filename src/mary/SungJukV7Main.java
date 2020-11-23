@@ -24,22 +24,20 @@ import java.util.Scanner;
 
 public class SungJukV7Main {
     public static void main(String[] args) {
+
 //        MidSungJuk2 msj2 = new MidSungJuk2();
-//
 //        msj2.readSungJuk();
 //        msj2.computeSungJuk();
 //        msj2.printSungJuk();
 
         FinalSungJuk2 fsj2 = new FinalSungJuk2();
-
-        fsj2.readSungJuk();
-        fsj2.computeSungJuk();
-        fsj2.printSungJuk();
-
+            fsj2.readSungJuk();
+            fsj2.computeSungJuk();
+            fsj2.printSungJuk();
     }
 }
 
-class MidSungJuk2 {
+abstract class SungJukV7 {
     protected String name ;
     protected int kor ;
     protected int eng ;
@@ -48,14 +46,84 @@ class MidSungJuk2 {
     protected double mean ;
     protected char grd ;
 
-    interface ISungJukV6 {
-        String name() ;
-        int kor() ;
-        int eng() ;
-        int mat() ;
+    public SungJukV7() {
     }
 
-    protected void readSungJuk() {
+    public SungJukV7(String name, int kor, int eng, int mat) {
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.mat = mat;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getKor() {
+        return kor;
+    }
+
+    public void setKor(int kor) {
+        this.kor = kor;
+    }
+
+    public int getEng() {
+        return eng;
+    }
+
+    public void setEng(int eng) {
+        this.eng = eng;
+    }
+
+    public int getMat() {
+        return mat;
+    }
+
+    public void setMat(int mat) {
+        this.mat = mat;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public double getMean() {
+        return mean;
+    }
+
+    public void setMean(double mean) {
+        this.mean = mean;
+    }
+
+    public char getGrd() {
+        return grd;
+    }
+
+    public void setGrd(char grd) {
+        this.grd = grd;
+    }
+}
+
+interface ISungJukV7 {
+    void readSungJuk();
+    void computeSungJuk();
+    void printSungJuk();
+
+}
+
+class MidSungJuk2 extends SungJukV7 implements ISungJukV7{
+
+    @Override
+    public void readSungJuk() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("이름을 입력하세요 : ");
@@ -67,16 +135,19 @@ class MidSungJuk2 {
         System.out.print("수학 점수를 입력하세요 : ");
         mat = sc.nextInt();
     }
-    protected void computeSungJuk() {
-        sum = kor + eng + mat;
-        mean = (double) sum / 3;
+
+    @Override
+    public void computeSungJuk() {
+        sum = kor+eng+mat;
+        mean = (double)sum / 3;
         grd = (mean >= 90) ? '수' :
               (mean >= 80) ? '우' :
               (mean >= 70) ? '미' :
               (mean >= 60) ? '양' : '가';
     }
 
-    protected void printSungJuk() {
+    @Override
+    public void printSungJuk() {
         String fmt =
                 "이름 : %s\n 국어 : %d\n 영어 : %d\n 수학 : %d\n"
                         + "총점 : %d\n 평균 : %.1f\n 학점 : %s\n";
@@ -85,39 +156,33 @@ class MidSungJuk2 {
 
         System.out.println(result);
     }
-
 }
 
-class FinalSungJuk2 extends MidSungJuk2 implements MidSungJuk2.ISungJukV6 {
-    protected int art;
+class FinalSungJuk2 extends SungJukV7 implements ISungJukV7 {
     protected int sci;
+    protected int art;
 
+    public FinalSungJuk2() {
+    }
 
-    @Override
-    public String name() {
-        return null;
+    public FinalSungJuk2(String name, int kor, int eng, int mat, int sci, int art) {
+        super(name, kor, eng, mat);
+        this.sci = sci;
+        this.art = art;
     }
 
     @Override
-    public int kor() {
-        return 0;
-    }
+    public void readSungJuk() {
+        Scanner sc = new Scanner(System.in);
 
-    @Override
-    public int eng() {
-        return 0;
-    }
-
-    @Override
-    public int mat() {
-        return 0;
-    }
-
-    @Override
-    protected void readSungJuk() {
-        super.readSungJuk();
-
-        Scanner sc = new Scanner(System.in); // 부모클래스에서 지정된 스캐너는 자식클래스에서 효력이 발생되지 않으므로 재선언 필요
+        System.out.print("이름을 입력하세요 : ");
+        name = sc.nextLine();
+        System.out.print("국어 점수를 입력하세요 : ");
+        kor = sc.nextInt();
+        System.out.print("영어 점수를 입력하세요 : ");
+        eng = sc.nextInt();
+        System.out.print("수학 점수를 입력하세요 : ");
+        mat = sc.nextInt();
         System.out.print("미술 점수를 입력하세요 : ");
         art = sc.nextInt();
         System.out.print("과학 점수를 입력하세요 : ");
@@ -125,23 +190,17 @@ class FinalSungJuk2 extends MidSungJuk2 implements MidSungJuk2.ISungJukV6 {
     }
 
     @Override
-    protected void computeSungJuk() {
-//        super.computeSungJuk();
-
+    public void computeSungJuk() {
         sum = kor + eng + mat + art + sci;
         mean = (double)sum / 5;
         grd = (mean >= 90) ? '수' :
               (mean >= 80) ? '우' :
               (mean >= 70) ? '미' :
               (mean >= 60) ? '양' : '가';
-
-
     }
 
     @Override
-    protected void printSungJuk() {
-//        super.printSungJuk();
-
+    public void printSungJuk() {
         String fmt =
                 "이름 : %s\n 국어 : %d\n 영어 : %d\n 수학 : %d\n"
                         + "과학 : %d\n 미술 : %d\n"
