@@ -11,13 +11,12 @@ public class Overriding {
     public static void main(String[] args) {
         Cat ct = new Cat();
         Dog d = new Dog();
+        Animal a = new Animal(); // 부모클래스 객체화 (보통 부모클래스를 표본으로 객체화로 사용하지 않음)
 
         System.out.println(ct.cry());
         System.out.println(d.cry());
+        System.out.println(a.cry());
     }
-
-
-
 
 
 
