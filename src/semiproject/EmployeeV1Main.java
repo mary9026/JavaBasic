@@ -2,6 +2,11 @@ package semiproject;
 
 import java.util.Scanner;
 
+/**
+ * EmployeeV1Main
+ * 인사정보 관리 프로그램 진입점
+ */
+
 public class EmployeeV1Main {
     public static void main(String[] args) {
         EmployeeV1Service empsrv = new EmployeeV1Service();
