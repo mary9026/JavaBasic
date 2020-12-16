@@ -36,6 +36,16 @@ public class EmployeeVO {
         this.deptid = deptid;
     }
 
+    // 생성자
+    public EmployeeVO(int empno, String lname, String email, String jobid, int mgrid, int deptid) {
+        this.empno = empno;
+        this.lname = lname;
+        this.email = email;
+        this.jobid = jobid;
+        this.mgrid = mgrid;
+        this.deptid = deptid;
+    }
+
     public int getEmpno() {
         return empno;
     }

@@ -17,6 +17,7 @@ package mary;
 
 public class SungJukVO {
 
+        private int sjno;
         private String name ;
         private int kor ;
         private int eng ;
@@ -24,6 +25,7 @@ public class SungJukVO {
         private int sum ;
         private double mean = 0.0 ;
         private char grd ;
+        private String regdate;
 
 
 
@@ -41,7 +43,21 @@ public class SungJukVO {
             this.grd = grd;
         }
 
-        public String getName() {
+    public SungJukVO(int sjno, String name, int kor, int eng, int mat, int sum, double mean, char grd, String regdate) {
+        this.sjno = sjno;
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.mat = mat;
+        this.sum = sum;
+        this.mean = mean;
+        this.grd = grd;
+        this.regdate = regdate;
+    }
+
+
+
+    public String getName() {
             return name;
         }
 
@@ -96,5 +112,23 @@ public class SungJukVO {
         public void setGrd(char grd) {
             this.grd = grd;
         }
+
+    public int getSjno() {
+        return sjno;
+    }
+
+    public void setSjno(int sjno) {
+        this.sjno = sjno;
+    }
+
+    public String getRegdate() {
+        return regdate;
+    }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
+    }
 }
+
+
 
