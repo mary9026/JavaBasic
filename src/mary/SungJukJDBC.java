@@ -11,7 +11,7 @@ public class SungJukJDBC extends JDBCUtil {
     public static String selectOneSungJUk =
             " select * from sungjuk where sjno = ? ";
     public static String updateSungJuk =
-            " update sungjuk set kor=?, eng=?, mat=?, tot=?, mean=?, grd=? where sjno = ? ";
+            " update sungjuk set kor=?, eng=?, mat=?, tot=?, mean=?, grd=?, regdate=sysdate() where sjno = ? ";
     public static String deleteSungJuk =
-            " delete sungjuk where sjno = ? ";
+            " delete from sungjuk where sjno = ? ";
 }

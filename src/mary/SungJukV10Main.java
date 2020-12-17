@@ -28,8 +28,8 @@ public class SungJukV10Main {
                 case "1" : sjsrv.newSungJuk(); break;
                 case "2" : sjsrv.readSungJuk(); break;
                 case "3" : sjsrv.readOneSungJuk(); break;
-                case "4" : break;
-                case "5" : break;
+                case "4" : sjsrv.modifySungJuk(); break;
+                case "5" : sjsrv.removeSungJuk(); break;
                 case "0" : System.exit(0); break; // System.exit(0); 정상적으로 종료한다 라는 명령어
                 default:
                     System.out.println("잘못 입력 하셨습니다. ㅠㅠ");

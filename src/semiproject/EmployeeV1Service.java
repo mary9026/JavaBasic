@@ -23,7 +23,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         //int empno, sal, mgrid, deptid;
         //double comm;
 
-        EmployeeVO emp = new EmployeeVO(0, "", "", "", "", "", 0, 0.0, 0, 0 );
+        EmployeeVO emp = new EmployeeVO(0, "", "", "", "", "","", 0, 0.0, 0, 0 );
 
         Scanner sc = new Scanner(System.in);
         //emp.setEmpno(sc.nextInt());

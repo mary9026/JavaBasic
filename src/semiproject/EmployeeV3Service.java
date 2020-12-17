@@ -31,7 +31,7 @@ public class EmployeeV3Service {
         //int empno, sal, mgrid, deptid;
         //double comm;
 
-        EmployeeVO emp = new EmployeeVO(0, "", "", "", "", "", 0, 0.0, 0, 0);
+        EmployeeVO emp = new EmployeeVO(0, "", "", "", "", "", "", 0, 0.0, 0, 0);
 
         Scanner sc = new Scanner(System.in);
         //emp.setEmpno(sc.nextInt());
@@ -40,6 +40,8 @@ public class EmployeeV3Service {
         // empno = sc.nextLine();
         emp.setEmpno(Integer.parseInt(sc.nextLine()));
         System.out.print("이름을 입력하세요 : ");
+        emp.setFname(sc.nextLine());
+        System.out.print("성을 입력하세요 : ");
         emp.setLname(sc.nextLine());
         System.out.print("이메일 주소를 입력하세요 : ");
         emp.setEmail(sc.nextLine());
@@ -58,15 +60,14 @@ public class EmployeeV3Service {
         System.out.print("부서번호를 입력하세요 : ");
         emp.setDeptid(Integer.parseInt(sc.nextLine()));
 
-        // 입력받은 데이터를 동적배열에 저장
-        // EmployeeVO ev = new EmployeeVO(empno, lname, email, jobid, deptid);
+        String result = EmployeeV3DAO.insertEmployee(emp);
+        System.out.println(result);
 
-        // 처리된 데이터를 동적배열에 저장 (멤버데이터 만들어야 함)
-        // empdata.add(emp);
+
     }
 
     public void readEmployee() {
-        String fmt = "%8s %8s %8s %8s %8s %8s\n";
+        String fmt = "%10s %10s %10s %10s %10s %10s\n";
         StringBuilder sb = new StringBuilder();
 
         String result = String.format(fmt, "empno", "lname", "email", "jobid", "mgrid", "deptid"); // 제목출력
@@ -83,5 +84,52 @@ public class EmployeeV3Service {
     }
 
     public void readOneEmployee() {
+        String fmt = "%10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s \n";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 직원의 사번을 입력하시오. ");
+        String empid = sc.nextLine();
+
+        EmployeeVO emp = EmployeeV3DAO.selectOneEmployee(empid);
+
+        String result = String.format(fmt, emp.getEmpno(),emp.getFname(), emp.getLname(), emp.getEmail(),
+                emp.getPhone(), emp.getHdate(), emp.getJobid(), emp.getSal(), emp.getComm(),
+                emp.getMgrid(), emp.getDeptid());
+
+        System.out.println(result);
+    }
+
+    // 매개변수 2개 넘기는거 연구해보기
+    public void modifyEmployee() {
+        Scanner sc = new Scanner(System.in);
+        EmployeeVO em = new EmployeeVO();
+
+        System.out.print("수정할 사번을 입력하세요 : ");
+        em.setEmpno(Integer.parseInt(sc.nextLine()));
+        System.out.print("수정할 이름을 입력하세요 : ");
+        em.setFname(sc.nextLine());
+        System.out.print("수정할 성을 입력하세요 : ");
+        em.setLname(sc.nextLine());
+        System.out.print("수정할 이메일을 입력하세요 : ");
+        em.setEmail(sc.nextLine());
+        System.out.print("수정할 전화번호를 입력하세요 : ");
+        em.setPhone(sc.nextLine());
+        System.out.print("수정할 입사일을 입력하세요 : ");
+        em.setHdate(sc.nextLine());
+
+        String result = EmployeeV3DAO.updateEmployee(em);
+        System.out.println(result);
+
+
+    }
+
+    public void removeEmployee() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("삭제할 사원번호는 ? ");
+        Integer empid = sc.nextInt();
+
+        String result = EmployeeV3DAO.deleteEmployee(empid);
+        System.out.println(result);
     }
 }

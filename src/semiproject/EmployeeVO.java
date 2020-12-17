@@ -10,6 +10,7 @@ package semiproject;
 public class EmployeeVO {
     // 멤버변수
     private int empno;
+    private String fname;
     private String lname;
     private String email;
     private String phone;
@@ -20,11 +21,9 @@ public class EmployeeVO {
     private int mgrid;
     private int deptid;
 
-    public EmployeeVO() {
-    }
-    //생성자
-    public EmployeeVO(int empno, String lname, String email, String phone, String hdate, String jobid, int sal, double comm, int mgrid, int deptid) {
+    public EmployeeVO(int empno, String fname, String lname, String email, String phone, String hdate, String jobid, int sal, double comm, int mgrid, int deptid) {
         this.empno = empno;
+        this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.phone = phone;
@@ -35,6 +34,23 @@ public class EmployeeVO {
         this.mgrid = mgrid;
         this.deptid = deptid;
     }
+
+
+    public EmployeeVO() {
+    }
+    //생성자
+//    public EmployeeVO(int empno, String lname, String email, String phone, String hdate, String jobid, int sal, double comm, int mgrid, int deptid) {
+//        this.empno = empno;
+//        this.lname = lname;
+//        this.email = email;
+//        this.phone = phone;
+//        this.hdate = hdate;
+//        this.jobid = jobid;
+//        this.sal = sal;
+//        this.comm = comm;
+//        this.mgrid = mgrid;
+//        this.deptid = deptid;
+//    }
 
     // 생성자
     public EmployeeVO(int empno, String lname, String email, String jobid, int mgrid, int deptid) {
@@ -125,4 +141,8 @@ public class EmployeeVO {
     public void setDeptid(int deptid) {
         this.deptid = deptid;
     }
+
+    public String getFname() { return fname; }
+
+    public void setFname(String fname) { this.fname = fname; }
 }

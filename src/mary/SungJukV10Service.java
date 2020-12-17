@@ -106,4 +106,33 @@ public class SungJukV10Service {
 
         System.out.println(result);
     }
+
+    public void modifySungJuk() {
+        Scanner sc = new Scanner(System.in);
+        SungJukVO sj = new SungJukVO();
+
+        System.out.println("수정할 성적번호는 ? ");
+        sj.setSjno(sc.nextInt());
+        System.out.println("수정할 국어점수는 ? ");
+        sj.setKor(sc.nextInt());
+        System.out.println("수정할 영어점수는 ? ");
+        sj.setEng(sc.nextInt());
+        System.out.println("수정할 수학점수는 ? ");
+        sj.setMat(sc.nextInt());
+
+        computeSungJuk(sj);
+
+        String result = SungJukV10DAO.updateSungJuk(sj);
+        System.out.println(result);
+    }
+
+    public void removeSungJuk() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("삭제할 성적번호는 ? ");
+        int sjno = sc.nextInt();
+
+        String result = SungJukV10DAO.deleteSungJuk(sjno);
+        System.out.println(result);
+    }
 }
