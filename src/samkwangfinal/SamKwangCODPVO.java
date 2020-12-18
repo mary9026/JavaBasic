@@ -1,6 +1,6 @@
 package samkwangfinal;
 
-public class SamKwangVO {
+public class SamKwangCODPVO {
     // 고객
     private int 고객번호;
     private String 고객이름;
@@ -8,7 +8,7 @@ public class SamKwangVO {
     private String 시도;
     private String 우편번호;
     private String 전화번호;
-    // 주문번호
+    // 주문
     private int 주문번호;
     private String 주문일;
     private String 납기일;
@@ -21,21 +21,23 @@ public class SamKwangVO {
     private String 제품분류;
     private int 단가;
     private int 재고량;
-    // 운송
-    private int 운송ID;
-    private String 운송이름;
-    private String 담당자전화번호;
-    // 직원
-    private String 주민등록번호;
-    private String 성명;
-    private String 소속부서;
-    private String 직책;
-    private String 입사일;
 
-    public SamKwangVO() {
+
+    public SamKwangCODPVO() {
     }
 
-    public SamKwangVO(int 고객번호, String 고객이름, String 주소, String 시도, String 우편번호, String 전화번호, int 주문번호, String 주문일, String 납기일, int 인사번호, int 제품번호, int 수량, String 제품이름, String 제품분류, int 단가, int 재고량, int 운송ID, String 운송이름, String 담당자전화번호, String 주민등록번호, String 성명, String 소속부서, String 직책, String 입사일) {
+    public SamKwangCODPVO(int 고객번호, String 고객이름, int 주문번호, String 주문일, int 제품번호, int 수량, String 제품이름, int 단가) {
+        this.고객번호 = 고객번호;
+        this.고객이름 = 고객이름;
+        this.주문번호 = 주문번호;
+        this.주문일 = 주문일;
+        this.제품번호 = 제품번호;
+        this.수량 = 수량;
+        this.제품이름 = 제품이름;
+        this.단가 = 단가;
+    }
+
+    public SamKwangCODPVO(int 제품번호, int 주문번호, int 고객번호, String 고객이름, String 주소, String 시도, String 우편번호, String 전화번호, String 주문일, String 납기일, int 인사번호, int 수량, String 제품이름, String 제품분류, int 단가, int 재고량) {
         this.고객번호 = 고객번호;
         this.고객이름 = 고객이름;
         this.주소 = 주소;
@@ -52,15 +54,10 @@ public class SamKwangVO {
         this.제품분류 = 제품분류;
         this.단가 = 단가;
         this.재고량 = 재고량;
-        this.운송ID = 운송ID;
-        this.운송이름 = 운송이름;
-        this.담당자전화번호 = 담당자전화번호;
-        this.주민등록번호 = 주민등록번호;
-        this.성명 = 성명;
-        this.소속부서 = 소속부서;
-        this.직책 = 직책;
-        this.입사일 = 입사일;
     }
+    // 상기 생성한 8개 지우고 this.(고객번호,고객이름,주문번호,주문일,제품번호,수량,제품이름,단가); 로 써도 됨
+    // 이미 정의된 생성자중 매개변수 순서와 유형이 동일한 생성자 호출
+
 
     public int get고객번호() {
         return 고객번호;
@@ -190,67 +187,4 @@ public class SamKwangVO {
         this.재고량 = 재고량;
     }
 
-    public int get운송ID() {
-        return 운송ID;
-    }
-
-    public void set운송ID(int 운송ID) {
-        this.운송ID = 운송ID;
-    }
-
-    public String get운송이름() {
-        return 운송이름;
-    }
-
-    public void set운송이름(String 운송이름) {
-        this.운송이름 = 운송이름;
-    }
-
-    public String get담당자전화번호() {
-        return 담당자전화번호;
-    }
-
-    public void set담당자전화번호(String 담당자전화번호) {
-        this.담당자전화번호 = 담당자전화번호;
-    }
-
-    public String get주민등록번호() {
-        return 주민등록번호;
-    }
-
-    public void set주민등록번호(String 주민등록번호) {
-        this.주민등록번호 = 주민등록번호;
-    }
-
-    public String get성명() {
-        return 성명;
-    }
-
-    public void set성명(String 성명) {
-        this.성명 = 성명;
-    }
-
-    public String get소속부서() {
-        return 소속부서;
-    }
-
-    public void set소속부서(String 소속부서) {
-        this.소속부서 = 소속부서;
-    }
-
-    public String get직책() {
-        return 직책;
-    }
-
-    public void set직책(String 직책) {
-        this.직책 = 직책;
-    }
-
-    public String get입사일() {
-        return 입사일;
-    }
-
-    public void set입사일(String 입사일) {
-        this.입사일 = 입사일;
-    }
 }
